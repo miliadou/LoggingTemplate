@@ -1,0 +1,26 @@
+Query for head table creation
+
+CREATE TABLE HEAD_MONITOR_TABLE (
+GLOBAL_UUID nvarchar(50) NOT NULL,
+USE_CASE nvarchar(255) NOT NULL,
+ORDER_STATUS nvarchar(50) NOT NULL,
+TIMESTAMP datetime NOT NULL,
+CONSTRAINT Head_Table_Key PRIMARY KEY (GLOBAL_UUID)
+);
+
+Query for details table creation
+
+CREATE TABLE DETAILS_MONITOR_TABLE (
+GLOBAL_UUID nvarchar(50) NOT NULL,
+USE_CASE nvarchar(255) NOT NULL,
+REQUEST_UUID nvarchar(50) NOT NULL,
+SERVICE nvarchar(255) NOT NULL,
+END_SYSTEM nvarchar(50) NOT NULL,
+STATE nvarchar(50) NOT NULL,
+PAYLOAD nvarchar(max) NOT NULL,
+TIMESTAMP datetime NOT NULL,
+LEVEL_TYPE nvarchar(50) NOT NULL,
+EXCEPTION nvarchar(max),
+STACK_TRACE nvarchar(max) 
+CONSTRAINT Detail_Table_Key PRIMARY KEY (REQUEST_UUID,STATE)
+);
